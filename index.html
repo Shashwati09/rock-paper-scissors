@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <label for=""> Enter your choice: </label>
+    <input type="text" name="player" id="#playerSel" />
+    <button type="submit" onclick="getPlayerSelection()">Submit</button>
+    <script>
+      let choice, player, cmp, ply;
+      let getComputerChoice = () => {
+        let choices = ["rock", "paper", "scissors"];
+        randomIndex = Math.floor(Math.random() * choices.length);
+        choice = choices[randomIndex];
+        return choice;
+      };
+      let comp = getComputerChoice();
+      console.log(comp);
+      let getPlayerSelection = () => {
+        let play = document.getElementById("#playerSel").value;
+        player = play.toLowerCase();
+        console.log(player);
+        playRound(comp, player);
+      };
+      let playRound = (cmp, ply) => {
+        if (cmp == ply) {
+          console.log("It's a draw");
+        }
+      };
+    </script>
+  </body>
+</html>
