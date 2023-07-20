@@ -24,12 +24,37 @@
         let play = document.getElementById("#playerSel").value;
         player = play.toLowerCase();
         console.log(player);
-        playRound(comp, player);
+        let result=playRound(comp, player);
+        console.log(result);
       };
+      
       let playRound = (cmp, ply) => {
         if (cmp == ply) {
-          console.log("It's a draw");
+          return("It's a draw");
         }
+        // Rock and Paper condition
+        else if(cmp=="rock" && ply=="paper"){
+            return("Paper beats rock, you win!")
+        }
+        else if(cmp=="paper" && ply=="rock"){
+            return("Paper beats rock, computer wins!")
+        }
+        // Paper and Scissors condition
+        else if(cmp=="paper" && ply=="scissors"){
+            return("Scissors beats paper, you win!")
+        }
+        else if(cmp=="scissors" && ply=="paper"){
+            return("Scissors beats paper, computer wins!")
+        }
+        // Rock and Scissors condition 
+        else if(cmp=="scissors" && ply=="rock"){
+            return("Rock beats scissors, you win!")
+        }
+        else if(cmp=="rock" && ply=="scissors"){
+            return("Rock beats scissors, computer wins!")
+        }
+        else 
+            return("Invalid choice");
       };
     </script>
   </body>
