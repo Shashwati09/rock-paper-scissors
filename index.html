@@ -1,61 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
     <h1>Rock Paper Scissors</h1>
-    <label for=""> Enter your choice: </label>
-    <input type="text" name="player" id="#playerSel" />
-    <button type="submit" onclick="getPlayerSelection()">Submit</button>
-    <script>
-      let choice, player, cmp, ply;
-      let getComputerChoice = () => {
-        let choices = ["rock", "paper", "scissors"];
-        randomIndex = Math.floor(Math.random() * choices.length);
-        choice = choices[randomIndex];
-        return choice;
-      };
-      let comp = getComputerChoice();
-      console.log(comp);
-      let getPlayerSelection = () => {
-        let play = document.getElementById("#playerSel").value;
-        player = play.toLowerCase();
-        console.log(player);
-        let result=playRound(comp, player);
-        console.log(result);
-      };
-      
-      let playRound = (cmp, ply) => {
-        if (cmp == ply) {
-          return("It's a draw");
-        }
-        // Rock and Paper condition
-        else if(cmp=="rock" && ply=="paper"){
-            return("Paper beats rock, you win!")
-        }
-        else if(cmp=="paper" && ply=="rock"){
-            return("Paper beats rock, computer wins!")
-        }
-        // Paper and Scissors condition
-        else if(cmp=="paper" && ply=="scissors"){
-            return("Scissors beats paper, you win!")
-        }
-        else if(cmp=="scissors" && ply=="paper"){
-            return("Scissors beats paper, computer wins!")
-        }
-        // Rock and Scissors condition 
-        else if(cmp=="scissors" && ply=="rock"){
-            return("Rock beats scissors, you win!")
-        }
-        else if(cmp=="rock" && ply=="scissors"){
-            return("Rock beats scissors, computer wins!")
-        }
-        else 
-            return("Invalid choice");
-      };
-    </script>
-  </body>
+    <p class="round-counter">Round - 1</p>
+    <p>Pick your play</p>
+    <div class="btn-container">
+      <div class="card card-rock">
+        <img src="img/fist.png" alt="Rock handsign">
+    <button onclick="playRound('rock')" class="btn btn-rock">Rock</button>
+  </div>
+  <div class="card card-paper">
+    <img src="img/open-hands.png" alt="Paper handsign">
+    <button onclick="playRound('paper')" class="btn btn-paper">Paper</button>
+  </div>
+  <div class="card card-sci">
+    <img src="img/hand.png" alt="Scissors handsign">
+    <button onclick="playRound('scissors')" class="btn btn-scissors">Scissors</button>
+  </div>
+  </div>
+  <br>
+    <div class="result"></div>
+    <div class="score">
+      <p class="ply-score">Player <span class="pscore">0</span></p>
+      <p class="cmp-score">Computer <span class="cscore">0</span></p>
+    </div>
+    <div class="counter"></div>
+    <div class="winner"></div>
+    <div class="reset-btn"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
