@@ -1,2 +1,3 @@
 # rock-paper-scissors
-First JavaScript project
+Basic project on a simple game called "Rock Paper Scissors".
+
